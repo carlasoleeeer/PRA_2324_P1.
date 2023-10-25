@@ -77,13 +77,14 @@ class ListArray : public List<T> {
 			resize(size()*2);
 		arr[n] = e;
 		n++;
+	
        }
       virtual  void prepend(T e) override{
-	      if(size() == max)
-		      resize(size()*2);
+	     if(size() == max)
+	      resize(size()*2);
 	      else{
 		      for(int i=n; i>0;i --){
-			      arr[i] = arr[i-1];
+		 	     arr[i] = arr[i-1];
 		}
 		arr[0]=e;
 		n++;
