@@ -72,13 +72,24 @@ class ListArray : public List<T> {
 			n++;
 		}
 	 }
-       void append( T e) override{
-       		arr[max-1]=e;
+      virtual  void append( T e) override{
+       		if(size() == max)
+			resize(size()*2);
+		arr[n] = e;
+		n++;
        }
-       void prepend(T e) override{
-	       arr[0]= e;
+      virtual  void prepend(T e) override{
+	      if(size() == max)
+		      resize(size()*2);
+	      else{
+		      for(int i=n; i>0;i --){
+			      arr[i] = arr[i-1];
+		}
+		arr[0]=e;
+		n++;
+		}
        }
-       T remove(int pos) override{
+      virtual  T remove(int pos) override{
 	       T aux;
 	       if( pos> size()-1 || pos< 0){
 		       throw std::out_of_range ("Posición no válida, fuera del array");
@@ -93,7 +104,7 @@ class ListArray : public List<T> {
 		  return aux;
 		}
        }
-        T get (int pos) override{
+       virtual T get (int pos) override{
 		if( pos> size()-1 || pos< 0){
                        throw std::out_of_range ("Posición no válida, fuera del array");
                }
@@ -101,24 +112,24 @@ class ListArray : public List<T> {
 		   	return arr[pos];
 	    	}
 	}
-        int search( T e) override{
+       virtual  int search( T e) override{
 
 	for(int i =0; i < n ; i ++){
-		if(arr[i]== e){
+		if(arr[i]== e)
 			return i;
-		}
-		else 
+	}
+		 
 			return -1;
 
+	
 	}
-	}
-        bool empty() override{
+       virtual  bool empty() override{
 		if(n ==0)//lista vacía
 			return true;
 		else 
 			return false;
 	}
-        int size() override{
+       virtual  int size() override{
 		return n ;
 	}
     // miembros públicos, incluidos los heredados de List<T>
