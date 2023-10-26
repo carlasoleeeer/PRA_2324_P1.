@@ -29,11 +29,12 @@ class ListLinked : public List<T> {
 			 for(int i =1; i < pos; i ++){
 				 aux= aux->next;
 		}
+			 return aux->data;
 		}	 
 		else{
-			throw std:out_of_range("posicion no valida");
+			throw std::out_of_range("posicion no valida");
 		}
-		return aux-> data;
+		
 
 
 	}
@@ -95,7 +96,7 @@ class ListLinked : public List<T> {
       virtual  void prepend(T e) override{
 	     Node<T>*aux = new Node<T>(e,first);
 	     first= aux;
-	     n++
+	     n++;
        }
       virtual  T remove(int pos) override{
 	       Node <T>* aux = first;
@@ -160,4 +161,4 @@ class ListLinked : public List<T> {
 		return n ;
 	}
    };
-        /.
+        
