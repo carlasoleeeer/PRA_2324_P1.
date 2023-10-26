@@ -132,7 +132,7 @@ class ListLinked : public List<T> {
                }
                else{
 		       Node<T>*aux= first;
-		       for(int i =0;i <pos; i ++){
+		       for(int i =0;i <=pos; i ++){
 			       aux = aux->next;
 		       }
 		   	return aux->data;
@@ -140,7 +140,7 @@ class ListLinked : public List<T> {
 	}
        virtual  int search( T e) override{
 		Node <T>*aux= first;
-	for(int i =0; i < n ; i ++){
+	for(int i =0; i <= n ; i ++){
 		if(aux->data=e){
 			return i;
 		}
